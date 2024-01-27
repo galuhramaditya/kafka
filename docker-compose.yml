@@ -89,7 +89,6 @@ services:
       - zoo1
       - kafka1
 
-  
   kafka-rest-proxy:
     image: confluentinc/cp-kafka-rest:7.3.2
     hostname: kafka-rest-proxy
@@ -97,7 +96,7 @@ services:
     ports:
       - "8082:8082"
     environment:
-      KAFKA_REST_ZOOKEEPER_CONNECT: zoo1:2181
+      # KAFKA_REST_ZOOKEEPER_CONNECT: zoo1:2181
       KAFKA_REST_LISTENERS: http://0.0.0.0:8082/
       KAFKA_REST_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
       KAFKA_REST_HOST_NAME: kafka-rest-proxy
@@ -106,7 +105,6 @@ services:
       - zoo1
       - kafka1
       - kafka-schema-registry
-
   
   kafka-connect:
     image: confluentinc/cp-kafka-connect:7.3.2
@@ -149,7 +147,6 @@ services:
         confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
         /etc/confluent/docker/run
 
-  
   ksqldb-server:
     image: confluentinc/cp-ksqldb-server:7.3.2
     hostname: ksqldb-server
