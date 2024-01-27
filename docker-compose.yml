@@ -168,9 +168,9 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: "conduktor"
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "conduktor-platform"
+      POSTGRES_USER: "conduktor"
+      POSTGRES_PASSWORD: "conductor"
       POSTGRES_HOST_AUTH_METHOD: "scram-sha-256"
 
   conduktor-platform:
@@ -184,7 +184,7 @@ services:
       CDK_ORGANIZATION_NAME: "demo"
       CDK_ADMIN_EMAIL: "admin@admin.io"
       CDK_ADMIN_PASSWORD: "admin"
-      CDK_DATABASE_URL: "postgresql://admin:admin@postgresql:5432/conduktor"
+      CDK_DATABASE_URL: "postgresql://conduktor:conductor@postgresql:5432/conduktor-platform"
       CDK_CLUSTERS_0_ID: "default"
       CDK_CLUSTERS_0_NAME: "My Local Kafka Cluster"
       CDK_CLUSTERS_0_COLOR: "#0013E7"
