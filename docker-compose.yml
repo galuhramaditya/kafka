@@ -188,7 +188,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - conduktor_data:/var/conduktor
+      - ./conduktor_data:/var/conduktor
     environment:
       CDK_ORGANIZATION_NAME: "demo"
       CDK_ADMIN_EMAIL: "admin@admin.io"
